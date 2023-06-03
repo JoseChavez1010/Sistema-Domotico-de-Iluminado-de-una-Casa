@@ -1,15 +1,11 @@
 int entrada=0;
-//variables focos
-//cable No.2
+//focos//
 int sala=2;
-//cable No.1
 int cocina=3;
-//cable No.3
 int cuarto=4;
-//cable No.4
 int ducha=5;
-//cables jumper
 int piscina=6;
+///////////
 
 void setup() {
 
@@ -32,10 +28,9 @@ digitalWrite(piscina,LOW);
 void loop() {
 if( Serial.available()>0)
  {
-  entrada = Serial.read();//B
+  entrada = Serial.read();
  }
- 
- switch (entrada)
+ switch ( entrada)
  {
   //cocina//
   case'A': //para encender cocina//
@@ -65,35 +60,37 @@ if( Serial.available()>0)
 
   break;
    //ducha//
-  case 'G': //para encender ducha
+   case'G'://para encender ducha//
   digitalWrite(ducha,HIGH);
  
   break;
-  case 'H': //apagar ducha//
+  case'H'://apagar ducha//
   digitalWrite(ducha,LOW);
   
   break;
-   case 'K'://apagar ducha//
-  digitalWrite(piscina,LOW);
-  
-  break;
-  
-   case 'L'://apagar ducha//
-  digitalWrite(piscina,HIGH);
-  
-  break;
-  case 'I'://encendido general//
+
+   case'K'://encendido general//
   digitalWrite(ducha,HIGH);
   digitalWrite(cocina,HIGH);
   digitalWrite(cuarto,HIGH);
   digitalWrite(sala,HIGH);
   break;
 
-   case 'J'://apagado general//
+   case'L'://apagado general//
   digitalWrite(ducha,LOW);
   digitalWrite(cocina,LOW);
   digitalWrite(cuarto,LOW);
   digitalWrite(sala,LOW);
   break;
+  
+   case'I'://apagar ducha//
+  digitalWrite(piscina,LOW);
+  
+  break;
+  
+   case'J'://apagar ducha//
+  digitalWrite(piscina,HIGH);
+  
+  break;
 }
-
+}
